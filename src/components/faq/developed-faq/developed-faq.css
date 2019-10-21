@@ -1,0 +1,138 @@
+@import "../../../index.css";
+
+.developed-faq {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.developed-faq .faq-header {
+  background-color: var(--primary-color);
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+}
+
+.developed-faq .faq-header i {
+  position: absolute;
+  color: white;
+  top: 8px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.developed-faq .faq-header .search-bar input {
+  font-size: 12px;
+  color: var(--grey-text) !important;
+  border: none;
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.developed-faq
+  .faq-header
+  .search-bar
+  .MuiInputBase-input::-webkit-input-placeholder {
+  font-size: 12px;
+  color: var(--grey-text) !important;
+  opacity: 0.7;
+  font-family: var(--main-font);
+  font-weight: 800;
+  font-style: normal;
+}
+
+.developed-faq .faq-header .search-bar .MuiInputBase-input::-moz-placeholder {
+  font-size: 12px;
+  color: var(--grey-text) !important;
+  opacity: 0.7;
+  font-family: var(--main-font);
+  font-weight: 800;
+  font-style: normal;
+}
+
+.developed-faq
+  .faq-header
+  .search-bar
+  .MuiInputBase-input:-ms-input-placeholder {
+  font-size: 12px;
+  color: var(--grey-text) !important;
+  opacity: 0.7;
+  font-family: var(--main-font);
+  font-weight: 800;
+  font-style: normal;
+}
+
+.developed-faq .faq-header .search-bar .MuiInputBase-input::-moz-placeholder {
+  font-size: 12px;
+  color: var(--grey-text) !important;
+  opacity: 0.7;
+  font-family: var(--main-font);
+  font-weight: 800;
+  font-style: normal;
+}
+
+.developed-faq .faq-header input,
+.developed-faq .faq-header input:focus {
+  position: relative;
+  left: 0;
+  text-align: left;
+  border-bottom: none;
+}
+
+/* Les paddings de 20px ne sont pas pris en compte sur le calcul de la hauteur une fois integre a Phileas */
+/* Le rendu en localhost:3000 est donc majore de 40px */
+
+.developed-faq .questions-list {
+  padding: 20px;
+  height: 158px;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.developed-faq .questions-list .title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.developed-faq .questions-list a,
+.developed-faq .questions-list a:visited,
+.developed-faq .questions-list a:active {
+  font-size: 11px !important;
+  line-height: 12px;
+  margin-left: 6px;
+  padding-top: 2px;
+  color: var(--secondary-color);
+  text-decoration-line: none;  text-align: justify;
+
+}
+
+.developed-faq .questions-list a:hover {
+  color: var(--primary-color) !important;
+  text-decoration-line: none;
+  font-size: 11px !important;
+  line-height: 12px  !important;
+  font-weight: 500  !important;
+  text-align: justify;
+}
+
+.developed-faq .questions-list li {
+  list-style: none;
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.developed-faq .questions-list .topic-index {
+  width: 10px;
+  font-size: 12px !important;
+  text-align: right;
+}
+
+.developed-faq .questions-list .no-result {
+  font-style: italic;
+  font-size: 12px;
+  color: lightslategray;
+}

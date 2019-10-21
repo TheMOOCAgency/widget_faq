@@ -1,0 +1,15 @@
+@import "../../index.css";
+
+.faq-hidden {
+  position: fixed;
+  top: calc(100vh - 70px);
+  right: 50px;
+  z-index: 1000 !important;
+}
+
+.faq-display {
+  position: fixed;
+  top: calc(100vh - 320px);
+  right: 50px;
+  z-index: 1000 !important;
+}
