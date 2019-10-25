@@ -93,7 +93,7 @@ class DevelopedFaq extends Component {
               <li key={topic.questionId}>
                 <div className="topic-index">{`${index + 1}. `}</div>
                 <a
-                  href={`/tma_apps/faq?question_id=${topic.questionId}#${topic.questionId}`}
+                  href={`/tma_apps/faq?questionId=${topic.questionId}#${topic.questionId}`}
                 >
                   {topic.question}
                 </a>
