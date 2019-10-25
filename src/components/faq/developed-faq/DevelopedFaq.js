@@ -37,22 +37,12 @@ class DevelopedFaq extends Component {
     isLoading: true,
     textFieldValue: "",
     topicsList: {},
-    filteredList: [],
-    questionId: ""
+    filteredList: []
   };
 
   componentDidMount() {
     this.fetchList();
-    // this.getQuestionId();
   }
-
-  // TO WRITE IN FAQ'S COMPONENT DID MOUNT
-  // getQuestionId = () => {
-  //   let urlParams = new URLSearchParams(window.location.search);
-  //   if (urlParams.has("question_id")) {
-  //     this.setState({ questionId: urlParams.get("question_id") });
-  //   }
-  // };
 
   fetchList = () => {
     if (window.props) {
@@ -71,7 +61,7 @@ class DevelopedFaq extends Component {
     let list = null;
     let newList = [];
 
-    // GET AN CLEAN AND ORDERED LIST OF ALL TOPICS
+    // GET A CLEAN AND ORDERED LIST OF ALL TOPICS
     if (!textFieldValue) {
       topicsList[language].map(mainTopic => {
         return mainTopic.content.map(topic => {
@@ -100,9 +90,11 @@ class DevelopedFaq extends Component {
         ) : (
           list.map((topic, index) => {
             return (
-              <li key={topic.id}>
+              <li key={topic.questionId}>
                 <div className="topic-index">{`${index + 1}. `}</div>
-                <a href={`/tma_apps/faq?question_id=${topic.id}#${topic.id}`}>
+                <a
+                  href={`/tma_apps/faq?question_id=${topic.questionId}#${topic.questionId}`}
+                >
                   {topic.question}
                 </a>
               </li>
