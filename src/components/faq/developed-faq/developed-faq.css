@@ -7,6 +7,7 @@
 }
 
 .developed-faq .faq-header {
+  background:#009fe5; /* For IE ?? */
   background-color: var(--primary-color);
   padding: 20px;
   position: relative;
@@ -25,11 +26,13 @@
 
 .developed-faq .faq-header .search-bar input {
   font-size: 12px;
+  color: #535151 !important; /* For IE */
   color: var(--grey-text) !important;
   border: none;
+  font-family: "MontSerrat"; /* For IE */
   font-family: var(--main-font);
   font-weight: 700;
-  font-style: normal;
+  font-style: normal;  
 }
 
 .developed-faq
@@ -39,6 +42,7 @@
   font-size: 12px;
   color: var(--grey-text) !important;
   opacity: 0.7;
+  font-family: "MontSerrat"; /* For IE */
   font-family: var(--main-font);
   font-weight: 800;
   font-style: normal;
@@ -48,6 +52,7 @@
   font-size: 12px;
   color: var(--grey-text) !important;
   opacity: 0.7;
+  font-family: "MontSerrat"; /* For IE */
   font-family: var(--main-font);
   font-weight: 800;
   font-style: normal;
@@ -60,6 +65,7 @@
   font-size: 12px;
   color: var(--grey-text) !important;
   opacity: 0.7;
+  font-family: "MontSerrat"; /* For IE */
   font-family: var(--main-font);
   font-weight: 800;
   font-style: normal;
@@ -69,6 +75,7 @@
   font-size: 12px;
   color: var(--grey-text) !important;
   opacity: 0.7;
+  font-family: "MontSerrat"; /* For IE */
   font-family: var(--main-font);
   font-weight: 800;
   font-style: normal;
@@ -81,6 +88,7 @@
   text-align: left;
   border-bottom: none;
 }
+
 
 /* Les paddings de 20px ne sont pas pris en compte sur le calcul de la hauteur une fois integre a Phileas */
 /* Le rendu en localhost:3000 est donc majore de 40px */
@@ -106,16 +114,16 @@
   margin-left: 6px;
   padding-top: 2px;
   color: var(--secondary-color);
-  text-decoration-line: none;  text-align: justify;
-
+  text-decoration-line: none;
+  text-align: justify;
 }
 
 .developed-faq .questions-list a:hover {
   color: var(--primary-color) !important;
   text-decoration-line: none;
   font-size: 11px !important;
-  line-height: 12px  !important;
-  font-weight: 500  !important;
+  line-height: 12px !important;
+  font-weight: 500 !important;
   text-align: justify;
 }
 

@@ -1,0 +1,113 @@
+<h2>Obtenir mon Attestation de réussite</h2>
+<div id="while-message">
+  Veuillez patienter nous calculons votre note finale...
+</div>
+<div id="attestation_non">
+  <p>
+    Pour obtenir votre Attestation de réussite vous devez obtenir une moyenne de
+    40% minimum aux &eacute;valuations. Pour voir ou vous en &ecirc;tes,
+    <strong>vous pouvez visualiser votre score dans l'onglet Progression</strong
+    >.
+  </p>
+</div>
+<div id="attestation_ok">
+	<p>
+Bravo, vous avez terminé le MOOC "Le client au cœur de l'agence" et possédez désormais toutes les clefs pour vous adapter aux nouvelles exigences des clients
+	</p>
+	<p>
+Nous espérons que cette formation vous a plu et a répondu à vos attentes.
+  </p>
+  <p>
+N'oubliez pas de télécharger l'ensemble des ressources qui vous ont été présentées en complément des cours, ils vous serviront d'outils pratique dans votre agence.
+  <p/>
+	<p>
+Il ne vous reste désormais plus qu’à télécharger votre attestation de réussite de 4 h de formation DDA compatible et à la garder bien précieusement*. 
+  </p>
+  <p>
+N’hésitez pas à l’afficher fièrement dans votre agence et à nous envoyer vos plus belles photos à ageaformation@agea.fr !
+  </p>
+  <p>
+
+* Attention, veillez à utiliser un autre navigateur qu'Internet Explorer, qui ne supporte pas cette fonctionnalité : Google Chrome, Safari ou Firefox.
+  </p>
+  <div id="cert-button">
+    <a
+      href="#"
+      onclick="window.open ('/tma_apps/course-v1:mooc-agea+COURS3+2019_T3/certificate/render', '');"
+      ><button
+        style="background-color: white; border: 1px solid rgba(103,177,52,1); text-transform: uppercase; background-image: none; color: rgba(103,177,52,1);"
+      >
+        Mon Certificat de Formation
+      </button></a
+    >
+  </div>
+</div>
+<div id="name-form">
+  <p>
+    Veuillez entrer votre nom tel qu'il appara&icirc;tra sur le certificat
+    (Attention, votre nom ne sera plus modifiable par la suite).
+  </p>
+  <form action="">
+    <label for="first_name"
+      >Votre pr&eacute;nom <input type="text" name="first_name"
+    /></label>
+    <label for="last_name"
+      >Votre nom <input type="text" name="last_name"
+    /></label>
+    <input type="submit" value="Enregistrer" />
+  </form>
+</div>
+<div id="error-register">
+  Une erreur est survenue pendant l'enregistrement de vos donn&eacute;es,
+  veuillez r&eacute;essayer plus tard.
+</div>
+<script>
+  // <![CDATA[
+  $("#attestation_ok").hide();
+  $("#attestation_non").hide();
+  $("#name-form").hide();
+  $("#error-register").hide();
+
+  $.ajax({
+    url: "/tma_apps/course-v1:mooc-agea+COURS3+2019_T3/certificate/ensure",
+    success: function(result) {
+      if (result.passed) {
+        $.ajax({
+          url: "/tma_apps/api/check_name",
+          success: function(data) {
+            $("#while-message").hide();
+            if (data.is_recorded) {
+              $("#attestation_ok").show();
+              $("#name-form").hide();
+            } else {
+              $("#name-form").show();
+            }
+          }
+        });
+      } else {
+        $("#while-message").hide();
+        $("#attestation_non").show();
+      }
+    }
+  });
+  $("#name-form").on("submit", function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "tma_apps/api/record_name",
+      method: "POST",
+      data: {
+        first_name: $('input[name="first_name"]').val(),
+        last_name: $('input[name="last_name"]').val()
+      },
+      success: function(data) {
+        if (data.name_recorded) {
+          $("#name-form").hide();
+          $("#attestation_ok").show();
+        } else {
+          $("#error-register").show();
+        }
+      }
+    });
+  });
+  // ]]>
+</script>

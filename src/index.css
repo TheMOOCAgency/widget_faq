@@ -1,4 +1,4 @@
-body {
+:root {
   margin: 0;
   font-family: "Montserrat";
   -webkit-font-smoothing: antialiased;
@@ -26,3 +26,5 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/* COMMENTS */
