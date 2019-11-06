@@ -8,7 +8,6 @@ class Faq extends Component {
 
   toggleFAQ = () => {
     this.setState({ displayFAQ: !this.state.displayFAQ });
-    console.log(window.lang)
   };
 
   renderFAQ = () => {
