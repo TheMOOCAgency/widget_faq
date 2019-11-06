@@ -11,19 +11,19 @@ const CssTextField = withStyles({
     marginTop: "15px",
     fontFamily: "Montserrat",
     "& .MuiInput-underline:after": {
-      borderBottomColor: "#0B1A4C"
+      borderBottomColor: "transparent"
     },
     "& .MuiOutlinedInput-root": {
       width: "210px",
       height: "40px",
       "& fieldset": {
-        borderColor: "#0B1A4C !important"
+        borderColor: "transparent !important"
       },
       "& :hover fieldset": {
-        borderColor: "#0B1A4C !important"
+        borderColor: "transparent !important"
       },
       "& .Mui-focused fieldset": {
-        borderColor: "#0B1A4C !important"
+        borderColor: "transparent !important"
       }
     }
   }
@@ -31,6 +31,7 @@ const CssTextField = withStyles({
 
 // SET TO "fr" FOR localhost:3000 RENDER, AS IT GET LANGUAGE PARAMETER FROM WINDOW
 let language = window.lang || "fr";
+const placeholder = {fr: "J'ai besoin d'aide avec...", en: "Hey there! I need help with..."}
 
 class DevelopedFaq extends Component {
   state = {
@@ -46,12 +47,10 @@ class DevelopedFaq extends Component {
 
   fetchList = () => {
     if (window.props) {
-      this.setState({ topicsList: window.props, isLoading: false }, () =>
-        console.log(window.props, "window-props")
+      this.setState({ topicsList: window.props, isLoading: false }
       );
     } else {
-      this.setState({ topicsList: topics, isLoading: false }, () =>
-        console.log(topics, "topics")
+      this.setState({ topicsList: topics, isLoading: false }
       );
     }
   };
@@ -66,7 +65,6 @@ class DevelopedFaq extends Component {
       topicsList[language].map(mainTopic => {
         return mainTopic.content.map(topic => {
           return topic.content.map(subTopic => {
-            console.log(newList);
             if (subTopic.question) {
               newList.push(subTopic);
             }
@@ -84,7 +82,7 @@ class DevelopedFaq extends Component {
 
     // RENDER AN ORDERED LIST
     return (
-      <ul>
+      <ul id="ul">
         {textFieldValue && filteredList.length === 0 ? (
           <div className="no-result">No result</div>
         ) : (
@@ -122,7 +120,6 @@ class DevelopedFaq extends Component {
         })
       )
     );
-    console.log(newList, "new");
     this.setState({ filteredList: newList });
     newList = [];
   };
@@ -133,7 +130,7 @@ class DevelopedFaq extends Component {
         value={this.state.textFieldValue}
         onChange={this.handleTextFieldChange}
         className="search-bar"
-        placeholder="Parcourez notre FAQ"
+        placeholder={placeholder[language]}
         variant="outlined"
         id="custom-css-outlined-input"
       />
